@@ -18,3 +18,10 @@ class AuthorsListView(ListView):
     model = Author
     template_name = 'spotify/authors_list_2.html'
     context_object_name = 'authors'
+
+
+def about(request):
+    return render(request, 'about.html')
+
+def album(request):
+    return render(request, 'album.html')
