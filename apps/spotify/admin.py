@@ -5,7 +5,7 @@ from django.contrib import admin
 from apps.spotify.models import *
 
 # admin.site.register(Author)
-# admin.site.register(Song)
+admin.site.register(Song)
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
