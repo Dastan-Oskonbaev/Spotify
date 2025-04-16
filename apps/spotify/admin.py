@@ -14,3 +14,6 @@ class AuthorAdmin(admin.ModelAdmin):
     list_filter = ('name', 'surname', 'album_count')
     search_fields = ('name', 'surname')
     ordering = ('id', 'name', 'surname')
+
+
+admin.site.register(Proposal)

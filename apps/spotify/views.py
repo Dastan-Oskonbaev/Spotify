@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
+from apps.spotify.forms import ProposalForm
 from apps.spotify.models import Author
 
 
@@ -20,8 +21,21 @@ class AuthorsListView(ListView):
     context_object_name = 'authors'
 
 
-def about(request):
-    return render(request, 'about.html')
+# def about(request):
+#     return render(request, 'about.html')
 
 def album(request):
     return render(request, 'album.html')
+
+
+def create_proposal(request):
+    if request.method == 'POST':
+        form = ProposalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('spotify/authors_list_2.html')
+        else:
+            return render(request, 'about.html', {'form': form})
+    else:
+        form = ProposalForm
+        return render(request, 'about.html', {'form': form})

@@ -42,3 +42,19 @@ class Song(models.Model):
     class Meta:
        verbose_name = 'Song'
        verbose_name_plural = 'Songs'
+
+
+
+class Proposal(models.Model):
+    name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    email = models.EmailField()
+    message = models.TextField()
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
