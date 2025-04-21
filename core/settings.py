@@ -33,9 +33,10 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(',')
 # Application definition
 MY_APPS = [
     'apps.spotify',
+    'apps.users'
 ]
 THIRD_PARTY_APPS = [
-
+    'phonenumber_field',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -135,3 +136,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PHONENUMBER_DEFAULT_REGION = 'KG'
+
+
+AUTH_USER_MODEL = 'users.CustomUser'

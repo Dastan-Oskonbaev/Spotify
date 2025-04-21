@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('spotify/', include('apps.spotify.urls')),
+    path('', include('apps.spotify.urls')),
+    path('users/', include('apps.users.urls')),
 ]
 
 if settings.DEBUG:
