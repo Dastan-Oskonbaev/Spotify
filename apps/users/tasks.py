@@ -13,3 +13,13 @@ def send_email():
         recipient_list=['azimkulovarita019@gmail.com', 'dastiw1910@gmail.com'],
         fail_silently=False,
     )
+
+@shared_task
+def send_welcome_email(email: str, username: str):
+    send_mail(
+        subject="Hello",
+        message=f"Hello {username}!",
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[email],
+        fail_silently=False,
+    )
